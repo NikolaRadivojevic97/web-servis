@@ -417,12 +417,12 @@ Flight::route('POST /korisnik', function(){
 				$podaci_query[$k] = $v;
 			}
 			if ($db->insert("korsinik", "ime, prezime, korisnicko_ime, sifra, email, kontakt_telefon, adresa", array($podaci_query["ime"], $podaci_query["prezime"], $podaci_query["korisnicko_ime"],$podaci_query["sifra"], $podaci_query["email"], $podaci_query["kontakt_telefon"],$podaci_query["adresa"]))){
-				$odgovor["poruka"] = "Novost je uspešno ubačena";
+				$odgovor["poruka"] = "Korisnik je uspešno ubačen";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
 			} else {
-				$odgovor["poruka"] = "Došlo je do greške pri ubacivanju novosti";
+				$odgovor["poruka"] = "Došlo je do greške pri ubacivanju korisnika";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
@@ -456,12 +456,12 @@ Flight::route('POST /paket', function(){
 				$podaci_query[$k] = $v;
 			}
 			if ($db->insert("paket", "naziv_paketa, broj_minuta, broj_sms, broj_mb, cena, url", array($podaci_query["naziv_paketa"], $podaci_query["broj_minuta"], $podaci_query["broj_sms"],$podaci_query["broj_mb"], $podaci_query["cena"], $podaci_query["url"]))){
-				$odgovor["poruka"] = "Novost je uspešno ubačena";
+				$odgovor["poruka"] = "Paket je uspešno ubačen";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
 			} else {
-				$odgovor["poruka"] = "Došlo je do greške pri ubacivanju novosti";
+				$odgovor["poruka"] = "Došlo je do greške pri ubacivanju paketa";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
@@ -495,12 +495,12 @@ Flight::route('POST /model_telefona', function(){
 				$podaci_query[$k] = $v;
 			}
 			if ($db->insert("model_telefona", "proizvodjac, naziv, masa, dimenzije, kamera, procesor, baterija,oparativni_sistem,memorija, slika", array($podaci_query["model_telefona"], $podaci_query["proizvodjac"], $podaci_query["naziv"],$podaci_query["masa"], $podaci_query["dimenzije"], $podaci_query["kamera"],$podaci_query["procesor"], $podaci_query["baterija"], $podaci_query["oparativni_sistem"],$podaci_query["memorija"],$podaci_query["cena"]))){
-				$odgovor["poruka"] = "Novost je uspešno ubačena";
+				$odgovor["poruka"] = "Model telefona je uspešno ubačen";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
 			} else {
-				$odgovor["poruka"] = "Došlo je do greške pri ubacivanju novosti";
+				$odgovor["poruka"] = "Došlo je do greške pri ubacivanju modela telefona";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
@@ -573,12 +573,12 @@ Flight::route('POST /ugovor', function(){
 				$podaci_query[$k] = $v;
 			}
 			if ($db->insert("ugovor", "datum, trajanje_ugovora, model_id, paket_id, korisnik_id", array($podaci_query["datum"], $podaci_query["trajanje_ugovora"], $podaci_query["model_id"],$podaci_query["paket_id"], $podaci_query["korisnik_id"]))){
-				$odgovor["poruka"] = "Novost je uspešno ubačena";
+				$odgovor["poruka"] = "Ugovor je uspešno ubačen";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
 			} else {
-				$odgovor["poruka"] = "Došlo je do greške pri ubacivanju novosti";
+				$odgovor["poruka"] = "Došlo je do greške pri ubacivanju ugovora";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
@@ -610,12 +610,12 @@ Flight::route('PUT /korisnik/@id', function($id){
 				$podaci_query[$k] = $v;
 			}
 			if ($db->update("korsinik", "korisnik_id",$id, array('ime','prezime','korisnicko_ime','sifra','email','kontakt_telefon','adresa','admin'),array($podaci->ime, $podaci->prezime,$podaci->korisnicko_ime, $podaci->sifra, $podaci->email, $podaci->kontakt_telefon,$podaci->adresa,$podaci->admin))){
-				$odgovor["poruka"] = "Novost je uspešno izmenjena";
+				$odgovor["poruka"] = "Korisnik je uspešno izmenjen";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
 			} else {
-				$odgovor["poruka"] = "Došlo je do greške pri izmeni novosti";
+				$odgovor["poruka"] = "Došlo je do greške pri izmeni korisnika";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
@@ -650,12 +650,12 @@ Flight::route('PUT /paket/@id', function($id){
 				$podaci_query[$k] = $v;
 			}
 			if ($db->update("paket", "paket_id",$id, array('naziv_paketa','broj_minuta','broj_sms','sifra','broj_mb','cena','url'),array($podaci->naziv_paketa, $podaci->broj_minuta,$podaci->korisnicko_ime, $podaci->broj_sms, $podaci->broj_mb, $podaci->cena,$podaci->url))){
-				$odgovor["poruka"] = "Novost je uspešno izmenjena";
+				$odgovor["poruka"] = "Paket je uspešno izmenjen";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
 			} else {
-				$odgovor["poruka"] = "Došlo je do greške pri izmeni novosti";
+				$odgovor["poruka"] = "Došlo je do greške pri izmeni paketa";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
@@ -691,12 +691,12 @@ Flight::route('PUT /model_telefona/@id', function($id){
 				$podaci_query[$k] = $v;
 			}
 			if ($db->update("model_telefona", "model_id",$id, array('proizvodjac','naziv','masa','dimenzije','kamera','procesor','baterija','oprativni_sistem','memorija','slika'),array($podaci->proizvodjac, $podaci->naziv,$podaci->masa, $podaci->dimenzije, $podaci->kamera, $podaci->procesor,$podaci->baterija, $podaci->oprativni_sistem, $podaci->memorija, $podaci->slika))){
-				$odgovor["poruka"] = "Novost je uspešno izmenjena";
+				$odgovor["poruka"] = "Model telefona je uspešno izmenjen";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
 			} else {
-				$odgovor["poruka"] = "Došlo je do greške pri izmeni novosti";
+				$odgovor["poruka"] = "Došlo je do greške pri izmeni modela telefona";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
@@ -771,12 +771,12 @@ Flight::route('PUT /ugovor/@id', function($id){
 				$podaci_query[$k] = $v;
 			}
 			if ($db->update("ugovor", "ugovor_id",$id, array('datum','trajanje_ugovora','model_id','paket_id','korisnik_id'),array($podaci->datum, $podaci->trajanje_ugovora,$podaci->model_id, $podaci->paket_id, $podaci->korisnik_id))){
-				$odgovor["poruka"] = "Novost je uspešno izmenjena";
+				$odgovor["poruka"] = "Ugovor je uspešno izmenjen";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
 			} else {
-				$odgovor["poruka"] = "Došlo je do greške pri izmeni novosti";
+				$odgovor["poruka"] = "Došlo je do greške pri izmeni ugovora";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
@@ -792,12 +792,12 @@ Flight::route('DELETE /korisnik/@id', function($id){
 		header ("Content-Type: application/json; charset=utf-8");
 		$db = Flight::db();
 		if ($db->delete("korsinik","korisnik_id",$id)){
-				$odgovor["poruka"] = "Novost je uspešno izbrisana";
+				$odgovor["poruka"] = "Korisnik je uspešno izbrisan";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
 		} else {
-				$odgovor["poruka"] = "Došlo je do greške prilikom brisanja novosti";
+				$odgovor["poruka"] = "Došlo je do greške prilikom brisanja korisnika";
 				$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 				echo $json_odgovor;
 				return false;
@@ -809,12 +809,12 @@ Flight::route('DELETE /paket/@id', function($id){
 	header ("Content-Type: application/json; charset=utf-8");
 	$db = Flight::db();
 	if ($db->delete("paket","paket_id",$id)){
-			$odgovor["poruka"] = "Novost je uspešno izbrisana";
+			$odgovor["poruka"] = "Paket je uspešno izbrisan";
 			$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 			echo $json_odgovor;
 			return false;
 	} else {
-			$odgovor["poruka"] = "Došlo je do greške prilikom brisanja novosti";
+			$odgovor["poruka"] = "Došlo je do greške prilikom brisanja paketa";
 			$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 			echo $json_odgovor;
 			return false;
@@ -826,12 +826,12 @@ Flight::route('DELETE /model_telefona/@id', function($id){
 	header ("Content-Type: application/json; charset=utf-8");
 	$db = Flight::db();
 	if ($db->delete("model_telefona","model_id",$id)){
-			$odgovor["poruka"] = "Novost je uspešno izbrisana";
+			$odgovor["poruka"] = "Model telefona je uspešno izbrisan";
 			$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 			echo $json_odgovor;
 			return false;
 	} else {
-			$odgovor["poruka"] = "Došlo je do greške prilikom brisanja novosti";
+			$odgovor["poruka"] = "Došlo je do greške prilikom brisanja modela telefona";
 			$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 			echo $json_odgovor;
 			return false;
@@ -860,12 +860,12 @@ Flight::route('DELETE /ugovor/@id', function($id){
 	header ("Content-Type: application/json; charset=utf-8");
 	$db = Flight::db();
 	if ($db->delete("ugovor","ugovor_id",$id)){
-			$odgovor["poruka"] = "Novost je uspešno izbrisana";
+			$odgovor["poruka"] = "Ugovor je uspešno izbrisan";
 			$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 			echo $json_odgovor;
 			return false;
 	} else {
-			$odgovor["poruka"] = "Došlo je do greške prilikom brisanja novosti";
+			$odgovor["poruka"] = "Došlo je do greške prilikom brisanja ugovora";
 			$json_odgovor = json_encode ($odgovor,JSON_UNESCAPED_UNICODE);
 			echo $json_odgovor;
 			return false;
